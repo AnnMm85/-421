@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<h2>Профиль</h2>
+<p>Здравствуйте, {{user.username}}, это ваш профиль </p>
+<div>
+    <div>
+        {% if user.avatar %}
+            <img src="{{user.avatar.url}}" width="250px">
+        {% else %}
+            <img src="/media/avatars/default.png" width="250px">
+        {% endif %}
+    </div>
+    <div>
+        <p>Имя : {{user.username}} </p>
+        <p>Почта : {{user.email}}</p>
+    </div>
+</div>
+{% endblock %}

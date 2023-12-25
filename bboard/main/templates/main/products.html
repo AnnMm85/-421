@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}Продукты{% endblock %}
+{% block content %}
+<h2>Продукты</h2>
+{% if products %}
+{% for product in products %}
+<div>
+    <div>
+        {% if product.image %}
+            <img src="{{product.image.url}}" width="250px">
+        {% else %}
+           <p>Нет изображения</p>
+        {% endif %}
+    </div>
+    <div>
+        <p>Название : {{product.title}} </p>
+        <p> Размер товара : {{product.short_size}}</p>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<p>There are no product here.</p>
+{% endif %}
+{% endblock %}
